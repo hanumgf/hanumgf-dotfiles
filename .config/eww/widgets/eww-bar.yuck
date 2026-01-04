@@ -24,8 +24,8 @@
               :spacing 10
               :hexpand true
               :space-evenly false
-              (wifi)
               (volume)
+              (wifi)
               (power)
         )
   )

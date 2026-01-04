@@ -32,7 +32,7 @@
               :onclick "./scripts/wifi.sh"
               :class "wifi-wraper"
               (box :class "wifi-label"
-                   (label :text "")
+                   (label :text " ")
          )
     )
 )
