@@ -106,6 +106,19 @@ return {
     },
   },
 
+  {
+    "neovim/nvim-lspconfig",
+    opts = {
+      servers = {
+        -- 他のサーバー（pyright, tsserver等）
+        qmlls = {
+          cmd = { "qmlls6" }, -- 環境に応じて実行ファイル名を調整
+          filetypes = { "qml", "qmljs" },
+        },
+      },
+    },
+  },
+
   -- for typescript, LazyVim also includes extra specs to properly setup lspconfig,
   -- treesitter, mason and typescript.nvim. So instead of the above, you can use:
   { import = "lazyvim.plugins.extras.lang.typescript" },
@@ -129,6 +142,7 @@ return {
         "typescript",
         "vim",
         "yaml",
+        "qmljs",
       },
     },
   },
