@@ -67,7 +67,8 @@ label {
   font_size=22
   halign=center
   position=0, 200
-  text=cmd[update:1000] echo $(date +"%A, %B %d")
+  text=cmd[update:1000] echo \$(date +"%A, %B %d")\
+
   valign=center
 }
 

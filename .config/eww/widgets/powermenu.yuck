@@ -67,7 +67,7 @@
                   :valign "center"
                   (eventbox :class "powerbutton reboot"
                             :cursor "pointer"
-                            :onclick "systemctl reboot"
+                            :onclick "cliphist wipe && systemctl reboot"
                             ;; :tooltip "Reboot"
                             (box :class "pwbutton" (label :text " "))
                   )

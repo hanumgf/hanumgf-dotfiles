@@ -2,6 +2,7 @@
 # export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
 export ZSH="$HOME/.oh-my-zsh"
+export LIBVA_DRIVER_NAME=radeonsi
 
 ZSH_THEME="refined"
 
@@ -32,3 +33,4 @@ alias sreboot='systemctl reboot'
 alias shutdown='systemctl poweroff'
 alias ssleep='systemctl suspend'
 alias ~data='cd /data'
+alias gen-newmirrorlist='sudo reflector --country Japan --exclude 'mirror.rain.ne.jp' --protocol https --age 24 --latest 20 --sort rate --save /etc/pacman.d/mirrorlist'
