@@ -6,6 +6,8 @@ DOMAINS=(
   "github.com"
   "archlinux.org"
   "discord.com"
+  "discord.gg"
+  "amazon.co.jp"
   "steamcommunity.com"
   "x.com"
 )
