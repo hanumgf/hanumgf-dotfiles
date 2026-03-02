@@ -38,15 +38,15 @@
 
 (defwindow bar_widget
     :monitor 0
-    :geometry (geometry :x "0px" 
-                      :y "5px" 
-                      :width "99.4%" 
-                      :height "2.825%" 
+    :geometry (geometry :x "0px"
+                      :y "5px"
+                      :width "99.4%"
+                      :height "2.825%"
                       :anchor "top center"
     )
     :exclusive true
     :stacking "bg"
     :namespace "eww-bar"
-    (bar)   
+    (bar)
 )
 

@@ -18,6 +18,8 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
+export PATH="$HOME/.local/bin:$PATH"
+
 # export GTK_IM_MODULE=fcitx
 # export QT_IM_MODULE=fcitx
 # export XMODIFIERS=@im=fcitx
@@ -34,3 +36,5 @@ alias shutdown='systemctl poweroff'
 alias ssleep='systemctl suspend'
 alias ~data='cd /data'
 alias gen-newmirrorlist='sudo reflector --country Japan --exclude 'mirror.rain.ne.jp' --protocol https --age 24 --latest 20 --sort rate --save /etc/pacman.d/mirrorlist'
+alias setdiscord='discord --ozone-platform=wayland --enable-wayland-ime --enable-features=WebRTCPipeWireCapturer,WaylandWindowDecorations,VaapiVideoDecoder,VaapiVideoEncoder,CanvasOopRasterization --disable-features=UseChromeOSDirectVideoDecoder,WaylandFractionalScaleV1 --enable-gpu-rasterization --enable-zero-copy --ignore-gpu-blocklist --use-gl=angle --use-angle=gl --force-color-profile=srgb --disable-renderer-backgrounding --disable-background-timer-throttling --disable-gpu-vsync --max-active-video-decoders=16 --js-flags="--max-old-space-size=512"'
+
