@@ -2,7 +2,6 @@
 # export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
 export ZSH="$HOME/.oh-my-zsh"
-export LIBVA_DRIVER_NAME=radeonsi
 
 ZSH_THEME="refined"
 

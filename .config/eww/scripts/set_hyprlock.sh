@@ -1,6 +1,6 @@
 #!/bin/bash
 
-WALLPAPER_FILE="$HOME/.config/hypr/current_wallpaper_swww"
+WALLPAPER_FILE="$HOME/.config/hypr/current_wallpaper_awww"
 WALLPAPER_PATH=$(cat "$WALLPAPER_FILE")
 CONFIG_PATH="$HOME/.config/hypr/hyprlock.conf"
 
