@@ -1,6 +1,6 @@
 -- since this is just an example spec, don't actually load anything here and return an empty spec
 -- stylua: ignore
-if true then return {} end
+-- if true then return {} end
 
 -- every spec file under the "plugins" directory will be loaded automatically by lazy.nvim
 --
@@ -71,37 +71,29 @@ return {
     },
   },
 
-  -- add tsserver and setup with typescript.nvim instead of lspconfig
   {
     "neovim/nvim-lspconfig",
     dependencies = {
       "jose-elias-alvarez/typescript.nvim",
-      init = function()
-        require("lazyvim.util").lsp.on_attach(function(_, buffer)
-          -- stylua: ignore
-          vim.keymap.set( "n", "<leader>co", "TypescriptOrganizeImports", { buffer = buffer, desc = "Organize Imports" })
-          vim.keymap.set("n", "<leader>cR", "TypescriptRenameFile", { desc = "Rename File", buffer = buffer })
-        end)
-      end,
+      -- ここにあった init を削除
     },
     ---@class PluginLspOpts
     opts = {
-      ---@type lspconfig.options
       servers = {
-        -- tsserver will be automatically installed with mason and loaded with lspconfig
         tsserver = {},
       },
-      -- you can do any additional lsp server setup here
-      -- return true if you don't want this server to be setup with lspconfig
-      ---@type table<string, fun(server:string, opts:_.lspconfig.options):boolean?>
+      -- 1. ここに setup ではなく on_attach を追加（または拡張）
       setup = {
-        -- example to setup with typescript.nvim
         tsserver = function(_, opts)
+          -- 2. ここで keymap を設定するか、Snacks の on_attach を呼ぶ
+          require("lazyvim.util").lsp.on_attach(function(_, buffer)
+            vim.keymap.set("n", "<leader>co", "TypescriptOrganizeImports", { buffer = buffer, desc = "Organize Imports" })
+            vim.keymap.set("n", "<leader>cR", "TypescriptRenameFile", { desc = "Rename File", buffer = buffer })
+          end)
+
           require("typescript").setup({ server = opts })
           return true
         end,
-        -- Specify * to use this function as a fallback for any server
-        -- ["*"] = function(server, opts) end,
       },
     },
   },
@@ -151,33 +143,24 @@ return {
   -- 既存の設定にオプションをマージするために "opts" を使用します。
   {
     "nvim-neo-tree/neo-tree.nvim",
-    -- optsはLazyVimのデフォルト設定とマージされます。
     opts = {
-      window = {
-        position = "left", -- ファイルツリーを左側に表示
-        width = 30, -- ウィンドウの幅
-      },
       filesystem = {
-        hijack_netrw = true, -- netrwを置き換える
-        -- プロジェクトルートに移動したときに自動的にneo-treeを開く
+        hijack_netrw = true,
         open_files_do_not_close_tree = true,
+        filtered_items = {
+          visible = true, -- これで常に H / I の状態
+          hide_dotfiles = false,
+          hide_gitignored = false,
+          hide_hidden = false,
+        },
       },
-      -- 起動時にツリーを開かない設定 (デフォルトで閉じたい場合)
-      -- デフォルトのLazyVimでは起動時に開く設定がされている場合があるので、
-      -- それを無効にするには、LazyVimの core プラグインの該当箇所を調整するか、
-      -- 以下の設定を試す必要があります。
-      -- auto_open = false,
-      -- auto_close = true,
+      window = {
+        position = "left",
+        width = 20,
+      },
     },
-    -- 特定のキーバインドをカスタマイズしたい場合
     keys = {
-      {
-        "<leader>ft", -- 新しいキーバインド <leader>ft で neo-tree をトグル
-        function()
-          require("neo-tree.command").execute({ action = "toggle", reveal = true })
-        end,
-        desc = "Toggle File Tree",
-      },
+      { "<leader>ft", "<cmd>Neotree toggle<cr>", desc = "Toggle File Tree" },
     },
   },
 
@@ -220,14 +203,20 @@ return {
   },
 
   -- use mini.starter instead of alpha
-  { import = "lazyvim.plugins.extras.ui.mini-starter" },
+  --{ import = "lazyvim.plugins.extras.ui.mini-starter" },
+  --{
+  --  "nvim-mini/mini.starter",
+  --  opts = {
+  --    sections = {},
+  --  },
+  --},
 
   -- add jsonls and schemastore packages, and setup treesitter for json, json5 and jsonc
   { import = "lazyvim.plugins.extras.lang.json" },
 
   -- add any tools you want to have installed below
   {
-    "williamboman/mason.nvim",
+    "mason-org/mason.nvim",
     opts = {
       ensure_installed = {
         "stylua",
