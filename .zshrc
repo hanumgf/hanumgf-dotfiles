@@ -15,9 +15,14 @@ plugins=(
     you-should-use
 )
 
-source $ZSH/oh-my-zsh.sh
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$HOME/.local/bin:$HOME/.cargo/bin:$PATH"
 
-export PATH="$HOME/.local/bin:$PATH"
+
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+
+source $ZSH/oh-my-zsh.sh
 
 # export GTK_IM_MODULE=fcitx
 # export QT_IM_MODULE=fcitx
