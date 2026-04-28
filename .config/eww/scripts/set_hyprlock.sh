@@ -52,7 +52,7 @@ input-field {
 label {
   monitor=DP-1
   color=rgba(242, 243, 244, 0.75)
-  font_family=JetBrains Mono
+  font_family=FiraCode Nerd Font
   font_size=95
   halign=center
   position=0, 300
@@ -63,7 +63,7 @@ label {
 label {
   monitor=DP-1
   color=rgba(242, 243, 244, 0.75)
-  font_family=JetBrains Mono
+  font_family=FiraCode Nerd Font
   font_size=22
   halign=center
   position=0, 200
