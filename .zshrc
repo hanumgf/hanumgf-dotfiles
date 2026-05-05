@@ -27,4 +27,5 @@ alias grep='grep --color=auto'
 alias ff='fastfetch'
 alias nf='neofetch'
 alias gen-newmirrorlist='sudo reflector --country Japan --exclude 'mirror.rain.ne.jp' --protocol https --age 24 --latest 20 --sort rate --save /etc/pacman.d/mirrorlist'
-alias fuckingdiscord='vesktop --ozone-platform-hint=auto --enable-wayland-ime --enable-features=WebRTCPipeWireCapturer,WaylandWindowDecorations,CanvasOopRasterization --enable-gpu-rasterization --ignore-gpu-blocklist --disable-renderer-backgrounding'
+alias fuckingdiscord='discord --ozone-platform=wayland --enable-wayland-ime --enable-features=WebRTCPipeWireCapturer,WaylandWindowDecorations,VaapiVideoDecoder,VaapiVideoEncoder,CanvasOopRasterization --disable-features=UseChromeOSDirectVideoDecoder,WaylandFractionalScaleV1 --enable-gpu-rasterization --enable-zero-copy --ignore-gpu-blocklist --use-gl=angle --use-angle=gl --force-color-profile=srgb --disable-renderer-backgrounding --disable-background-timer-throttling --disable-gpu-vsync --max-active-video-decoders=16 --js-flags="--max-old-space-size=512"'
+
