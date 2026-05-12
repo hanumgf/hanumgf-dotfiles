@@ -1,6 +1,6 @@
--- #####################
--- ### ECOSYSTEM / 
--- #######################
+-- ##############################
+-- ### ECOSYSTEM / PERMISSION ###
+-- ##############################
 
 
 hl.config ({
@@ -16,5 +16,5 @@ hl.config ({
 hl.permission({ binary = "/usr/(bin|lib|lib32|lib64)/.*", type = "screencopy", mode = "ask" })
 
 -- 2. 個別のアプリに対する許可設定
-hl.permission({ binary = "/usr/bin/(grim|slurp|awww|vivaldi|discord|obs|hyprland-share-picker|hypr.*|xdg-desktop-portal.*)", type = "screencopy", mode = "allow"})
+hl.permission({ binary = "/usr/bin/(grim|slurp|awww|vivaldi|discord|obs|hyprland-share-picker|hypr.*|xdg-desktop-portal.*)", type = "screencopy", mode = "allow" })
 
