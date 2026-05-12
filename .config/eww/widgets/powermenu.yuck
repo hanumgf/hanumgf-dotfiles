@@ -48,7 +48,7 @@
                   )
                   (eventbox :class "powerbutton logout"
                             :cursor "pointer"
-                            :onclick "hyprctl dispatch exit"
+                            :onclick "hyprctl dispatch 'hl.dsp.exit()'"
                             ;; :tooltip "Logout"
                             (box :class "pwbutton" (label :text "󰍃 "))
                   )

@@ -22,5 +22,6 @@ wpg -s "$FULL_PATH"
 echo "$FULL_PATH" >~/.config/hypr/current_wallpaper_awww
 
 sleep 0.2s
+hyprctl reload
 bash ~/.config/eww/scripts/set_hyprlock.sh
 eww reload

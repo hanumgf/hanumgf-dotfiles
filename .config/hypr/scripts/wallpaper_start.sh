@@ -1,6 +1,7 @@
 #!/bin/bash
 
-awww-daemon --format xrgb
+awww-daemon --format xrgb &
+sleep 0.05
 
 WALLPAPER_FILE="$HOME/.config/hypr/current_wallpaper_awww"
 
