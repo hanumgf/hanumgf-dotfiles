@@ -4,17 +4,18 @@
 
 -- https://wiki.hyprland.org/Configuring/Window-Rules/
 
-------------------------
+
+-----------------------
 --- SYSTEM / FIXES   ---
 ------------------------
 
--- 最大化リクエストを無視
+-- Ignore maximize requests from windows
 hl.window_rule({
     match          = { class = ".*" },
     suppress_event = "maximize",
 })
 
--- XWayland のドラッグ修正
+-- Fix drag-and-drop bugs on XWayland
 hl.window_rule({
     name = "fix-xwayland-drags",
     match = {
@@ -28,7 +29,7 @@ hl.window_rule({
     no_focus = true,
 })
 
--- スクリーン共有用ブリッジの不可視化
+-- Make XWayland video bridge invisible for clean screen sharing
 hl.window_rule({
     name = "xwayland-video-bridge-fixes",
     match = { class = "xwaylandvideobridge" },
@@ -45,12 +46,13 @@ hl.window_rule({
 --- APP SPECIFIC     ---
 ------------------------
 
--- Thunar: 透過とダイアログのフロート設定
+-- Thunar: Set opacity for main window
 hl.window_rule({
     match   = { class = "thunar|Thunar" },
     opacity = "0.8 0.8", -- active inactive
 })
 
+-- Thunar: Float and center standard dialog windows
 hl.window_rule({
     name = "Thunar dialogs",
     match = {
@@ -61,7 +63,7 @@ hl.window_rule({
     center = true,
 })
 
--- Vivaldi: 常に不透明
+-- Vivaldi: Always keep fully opaque
 hl.window_rule({
     match  = { class = "vivaldi-stable" },
     opaque = true,
@@ -71,7 +73,7 @@ hl.window_rule({
 --- GAMER / TOOLS    ---
 ------------------------
 
--- Steam の特定ウィンドウをフロート（正規表現で一括指定）
+-- Float and center secondary Steam windows
 hl.window_rule({
     name = "Steam floating windows",
     match = {
@@ -82,14 +84,14 @@ hl.window_rule({
     center = true,
 })
 
--- Steam ゲーム本体（自動でフルスクリーン化）
+-- Steam Games: Force full-screen launch automatically
 hl.window_rule({
     name = "Steam Games",
     match = { class = "steam_app_.*" },
     fullscreen = true,
 })
 
--- 一般的なダイアログ/ファイルピッカーのフロート化
+-- Float and center general desktop dialogs or file pickers
 hl.window_rule({
     name = "Common dialogs",
     match = {
@@ -100,17 +102,28 @@ hl.window_rule({
 })
 
 ------------------------
+--- ECOSYSTEM       ----
+------------------------
+
+-- Optimize OBS performance when unfocused
+hl.window_rule({
+    name             = "OBS Performance",
+    match            = { class = "obs" },
+    render_unfocused = false,
+})
+
+------------------------
 --- LAYER RULES      ---
 ------------------------
 
--- Eww 
+-- Eww panel configuration
 hl.layer_rule({
     match        = { namespace = "eww-powerwd" },
     blur         = true,
     ignore_alpha = 0.5,
 })
 
--- Dunst (通知の背景をボカす)
+-- Dunst (Apply background blur to notifications)
 hl.layer_rule({
     match        = { namespace = "dunst" },
     blur         = true,

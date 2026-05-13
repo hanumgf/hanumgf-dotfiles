@@ -2,35 +2,37 @@
 -- ### AUTOSTART ###
 -- #################
 
+-- https://wiki.hypr.land/Configuring/Basics/Autostart/
+
 
 hl.on("hyprland.start", function()
     local commands = {
-        -- 1. 基盤系（これがないと他のアプリがバグる可能性があるもの）
+        -- 1. Infrastructure (Essential to prevent application bugs)
         "dbus-update-activation-environment --all",
         "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP",
 
-        -- 2. インプット・クリップボード（実用性）
+        -- 2. Input & Clipboard (Utility)
         "fcitx5 -d --replace",
         "wl-paste --type text --watch cliphist store",
         "wl-paste --type image --watch cliphist store",
 
-        -- 3. 視覚的要素（最優先：ユーザーへのフィードバック）
+        -- 3. Visuals & Themes (High priority for user feedback)
         'hyprctl setcursor "Hakurei Reimu-hyprcursor" 24',
         "~/.config/hypr/scripts/wallpaper_start.sh",
 
-        -- 4. UI・デーモン系
-        "~/.config/eww/launch_bar.sh",
-        "dunst",
+        -- 4. UI & Daemons
         "hypridle",
         "gsr-ui",
+        "~/.config/hypr/scripts/dunst.sh",
+        "~/.config/eww/launch_bar.sh",
 
-        -- 5. バックグラウンド処理・後処理
+        -- 5. Background Tasks & Post-processing
         "~/.config/hypr/scripts/dns-warmup.sh",
         "sleep 2 && hyprctl reload"
     }
 
+    -- Execute all commands in the background
     for i = 1, #commands do
         hl.exec_cmd(commands[i] .. " &")
     end
 end)
-

@@ -7,21 +7,23 @@
 
 
 hl.config({
-    -- Spiral tiling layout
     dwindle = {
-        -- Maintain split direction (vertical/horizontal) to prevent layout shifts on close
-        preserve_split = true,
-        -- Enable intuitive resizing via window borders
-        smart_resizing = true,
-        -- Split behavior: 0=half, 1=mouse focus, 2=last active
-        force_split = 2,
+        preserve_split    = true,
+        smart_resizing    = true,
+        force_split       = 2,
+
+        -- Improvements for layout stability
+        use_active_for_splits = true,
+        default_split_ratio   = 1.0,
     },
 
-    -- Master-stack layout (Keep main window prominent)
     master = {
-        -- Placement for new windows: master, slave, or inherit
-        new_status = "master",
-        -- Master area size ratio (0.5 = 50% of screen)
-        mfact = 0.5,
+        orientation       = "left",
+        mfact             = 0.5,
+        new_status        = "master",
+
+        -- Synchronize feel with dwindle settings
+        smart_resizing    = true,
+        drop_at_cursor    = true,
     },
 })

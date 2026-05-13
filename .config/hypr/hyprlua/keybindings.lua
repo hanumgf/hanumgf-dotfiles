@@ -2,7 +2,9 @@
 -- ### KEYBINDINGS ###
 -- ###################
 
--- See https://wiki.hypr.land/Configuring/Keywords/
+-- https://wiki.hypr.land/Configuring/Basics/Binds/#submaps
+
+
 local mainMod = "SUPER" -- Sets "Windows" key as main modifier
 
 local terminal = "kitty"
@@ -55,6 +57,11 @@ hl.bind(mainMod .. " + M", hl.dsp.layout("swapwithmaster"))
 -- Example special workspace (scratchpad)
 hl.bind(mainMod .. " + S",         hl.dsp.workspace.toggle_special("magic"))
 hl.bind(mainMod .. " + SHIFT + S", hl.dsp.window.move({ workspace = "special:magic" }))
+
+-- Group / Ungroup the current window
+hl.bind("SUPER + G",            hl.dsp.group.toggle())
+hl.bind("SUPER + CTRL + ",  hl.dsp.group.prev())
+hl.bind("SUPER + ALT + G", hl.dsp.group.next())
 
 -- Scroll through existing workspaces with mainMod + scroll
 hl.bind(mainMod .. " + mouse_down", hl.dsp.focus({ workspace = "e+1" }))

@@ -8,20 +8,25 @@
 
 hl.config({
     input = {
+        -- Keyboard settings
         kb_layout = "us",
-        follow_mouse = 1,
-
-        -- Keyboard repeat: Faster response and higher rate
-        repeat_rate = 40,
+        numlock_by_default = true,
         repeat_delay = 280,
+        repeat_rate = 40,
 
-        -- Mouse & Scroll: Flat acceleration for precision
+        -- Mouse sensitivity and acceleration profile
         sensitivity = 0,
         accel_profile = "flat",
+
+        -- Scroll on button press configuration
         scroll_method = "on_button_down",
         scroll_button = 274,
 
-        -- Touchpad: Modern laptop-style gestures
+        -- Window focus behavior
+        follow_mouse = 1,
+        float_switch_override_focus = 0,
+
+        -- Touchpad configuration
         touchpad = {
             natural_scroll = true,
             tap_to_click = true,
@@ -29,21 +34,23 @@ hl.config({
             clickfinger_behavior = true,
             scroll_factor = 0.3,
         },
-
-        numlock_by_default = true,
-        float_switch_override_focus = 0,
     },
 
-    cursor = {
-        -- Performance & Refresh rate
-        no_hardware_cursors = 1,
-        no_break_fs_vrr = 2,
-        min_refresh_rate = 60,
-        use_cpu_buffer = 0,
 
-        -- Theming & Interaction
+    cursor = {
+        -- Theme and system synchronization
         sync_gsettings_theme = true,
         enable_hyprcursor = true,
+
+        -- Rendering and performance profiles
+        no_hardware_cursors = 1,
+        use_cpu_buffer = 0,
+
+        -- Stutter prevention for Variable Refresh Rate (VRR)
+        no_break_fs_vrr = 2,
+        min_refresh_rate = 60,
+
+        -- Cursor movement and visibility control
         no_warps = true,
         hide_on_key_press = true,
     },

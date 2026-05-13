@@ -2,8 +2,10 @@
 -- ### MONITORS ###
 -- ################
 
--- See https://wiki.hypr.land/Configuring/Monitors/
+-- https://wiki.hypr.land/Configuring/Basics/Monitors/
 
+
+-- Primary monitor configuration (High refresh rate display)
 hl.monitor({
     output   = "DP-1",
     mode     = "2560x1440@180.00",
@@ -11,6 +13,7 @@ hl.monitor({
     scale    = "1",
 })
 
+-- Secondary monitor configuration (Positioned to the right of primary)
 hl.monitor({
     output   = "HDMI-A-1",
     mode     = "1920x1080@120.00",

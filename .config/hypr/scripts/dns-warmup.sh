@@ -15,6 +15,8 @@ TYPES=("A" "AAAA")
 MAX_RETRIES=15
 RETRY_COUNT=0
 
+sleep 1s
+
 while ! dig @127.0.0.1 localhost >/dev/null 2>&1; do
   if [ $RETRY_COUNT -ge $MAX_RETRIES ]; then
     notify-send "エラー: DNSサーバーがタイムアウトしました"
