@@ -23,8 +23,6 @@ hl.window_rule({
         title      = "^$",
         xwayland   = true,
         float      = true,
-        fullscreen = false,
-        pin        = false,
     },
     no_focus = true,
 })
@@ -42,6 +40,78 @@ hl.window_rule({
     max_size         = "1 1",
 })
 
+-- Preventing Blurring in the XWayland Context Menu
+hl.window_rule({
+    match   = { class = "^()$", title = "^()$" },
+    no_blur = true,
+})
+
+-- Fixed focus/redraw issues in JetBrains IDEs
+hl.window_rule({
+    name = "JetBrains Fix",
+    match = {
+        class = "^jetbrains-.*$",
+        float = true,
+        title = "^$|^\\s$|^win\\d+$",
+    },
+    no_initial_focus = true,
+})
+
+
+------------------------
+--- DIALOGS & UI     ---
+------------------------
+
+-- Center and float the main dialog
+hl.window_rule({
+    name = "Global Dialogs",
+    match = {
+        title = "Open File|Save As|Select a File|Choose wallpaper|Library|File Upload|.*wants to save|.*wants to open|Confirm to replace files|Select a Folder"
+    },
+    float  = true,
+    center = true,
+})
+
+-- Float system tools
+hl.window_rule({
+    name = "System Tools",
+    match = {
+        class = "pavucontrol|org.pulseaudio.pavucontrol|nm-connection-editor|blueberry.py|nwg-look|qt6ct|kvantummanager|org.freedesktop.impl.portal.desktop.kde"
+    },
+    float  = true,
+    center = true,
+    size   = "900 600",
+})
+
+
+------------------------
+--- GAMING           ---
+------------------------
+
+-- Settings to enable tearing and minimize latency
+hl.window_rule({
+    name = "Gamer Immediate Mode",
+    match = {
+        title = ".*\\.exe|.*minecraft.*",
+        class = "^(steam_app).*|^(cs2)$"
+    },
+    immediate = true,
+})
+
+-- Do not apply shadows to tiled windows
+hl.window_rule({
+    match    = { float = false },
+    no_shadow = true,
+})
+
+-- Optimize OBS performance when unfocused
+hl.window_rule({
+    name             = "OBS Performance",
+    match            = { class = "obs" },
+    render_unfocused = false,
+})
+
+
 ------------------------
 --- APP SPECIFIC     ---
 ------------------------
@@ -52,21 +122,23 @@ hl.window_rule({
     opacity = "0.8 0.8", -- active inactive
 })
 
--- Thunar: Float and center standard dialog windows
-hl.window_rule({
-    name = "Thunar dialogs",
-    match = {
-        class = "thunar|Thunar",
-        title = 'Rename ".*"|File Operation Progress|Confirm to replace files|Attention'
-    },
-    float = true,
-    center = true,
-})
-
 -- Vivaldi: Always keep fully opaque
 hl.window_rule({
     match  = { class = "vivaldi-stable" },
     opaque = true,
+})
+
+-- Powerful Regular Expressions for Picture-in-Picture
+hl.window_rule({
+    name = "Picture-in-Picture Fix",
+    match = {
+        title = "^([Pp]icture[-\\s]?[Ii]n[-\\s]?[Pp]icture)(.*)$"
+    },
+    float             = true,
+    pin               = true,
+    keep_aspect_ratio = true,
+    move              = "73% 72%", 
+    size              = "25% 25%",
 })
 
 ------------------------
@@ -78,7 +150,7 @@ hl.window_rule({
     name = "Steam floating windows",
     match = {
         class = "steam",
-        title = "Friends List|Steam - News|.* - Chat|Settings"
+        title = "Friends List|Steam - News|.* - Chat|Settings|.* - Shop"
     },
     float  = true,
     center = true,
@@ -91,41 +163,27 @@ hl.window_rule({
     fullscreen = true,
 })
 
--- Float and center general desktop dialogs or file pickers
-hl.window_rule({
-    name = "Common dialogs",
-    match = {
-        title = "Open File|Save File|Confirm to replace files|Select a File|Choose Wallpaper"
-    },
-    float  = true,
-    center = true,
-})
-
-------------------------
---- ECOSYSTEM       ----
-------------------------
-
--- Optimize OBS performance when unfocused
-hl.window_rule({
-    name             = "OBS Performance",
-    match            = { class = "obs" },
-    render_unfocused = false,
-})
 
 ------------------------
 --- LAYER RULES      ---
 ------------------------
 
--- Eww panel configuration
+-- Batch Apply Background Blur
 hl.layer_rule({
-    match        = { namespace = "eww-powerwd" },
+    match        = { namespace = "eww-powerwd|dunst|notifications|logout_dialog" },
     blur         = true,
     ignore_alpha = 0.5,
 })
 
--- Dunst (Apply background blur to notifications)
+-- Disable animation for a specific layer
 hl.layer_rule({
-    match        = { namespace = "dunst" },
-    blur         = true,
-    ignore_alpha = 0.5,
+    match   = { namespace = "selection|hyprpicker|indicator.*" },
+    no_anim = true,
 })
+
+-- X-ray effect on a layer
+hl.layer_rule({
+    match = { namespace = ".*" },
+    xray  = true,
+})
+
