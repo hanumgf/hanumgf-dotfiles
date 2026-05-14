@@ -23,12 +23,11 @@ hl.on("hyprland.start", function()
         -- 4. UI & Daemons
         "hypridle",
         "gsr-ui",
-        "~/.config/hypr/scripts/dunst.sh",
         "~/.config/eww/launch_bar.sh",
+        "sleep 0.5s; dunst",
 
         -- 5. Background Tasks & Post-processing
-        "~/.config/hypr/scripts/dns-warmup.sh",
-        "sleep 2 && hyprctl reload"
+        "sleep 1s; ~/.config/hypr/scripts/dns-warmup.sh",
     }
 
     -- Execute all commands in the background
