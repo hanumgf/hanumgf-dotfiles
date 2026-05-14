@@ -45,7 +45,7 @@ hl.bind(mainMod .. " + CTRL + bracketright",  hl.dsp.exec_cmd("~/.config/hypr/sc
 
 -- Switch workspaces with mainMod + [1-8]
 -- Move active window to a workspace with mainMod + SHIFT + [1-8]
-for i = 1, 8 do
+for i = 1, 9 do
     local key = tostring(i)
     hl.bind(mainMod .. " + " .. key,         hl.dsp.focus({ workspace = i }))
     hl.bind(mainMod .. " + SHIFT + " .. key, hl.dsp.window.move({ workspace = i }))

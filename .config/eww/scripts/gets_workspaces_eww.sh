@@ -13,7 +13,7 @@ generate_eww_output() {
     MONITORS_JSON=$(hyprctl monitors -j)
     FOCUSED_WS_ID=$(echo "$MONITORS_JSON" | jq -r '.[] | select(.focused == true) | .activeWorkspace.id')
     DISPLAYED_WS_ID=$(echo "$MONITORS_JSON" | jq -r '.[] | select(.focused == false) | .activeWorkspace.id')
-    ALL_WORKSPACES=$(seq 1 8)
+    ALL_WORKSPACES=$(seq 1 9)
 
     OUTPUT_EWw="(box :class \"ws\" :halign \"start\" :valign \"center\" :orientation \"h\" :spacing 5"
 

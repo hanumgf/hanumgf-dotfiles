@@ -9,7 +9,7 @@ for i = 1, 5 do
 end
 
 -- HDMI-A-1 (Sub)
-for i = 6, 8 do
+for i = 6, 9 do
     local is_default = (i == 6)
     hl.workspace_rule({ workspace = tostring(i), monitor = "HDMI-A-1", default = is_default })
 end
