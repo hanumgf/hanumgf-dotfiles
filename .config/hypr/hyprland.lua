@@ -7,11 +7,11 @@
 -- Refer to the wiki for more information.
 -- https://wiki.hypr.land/Configuring/Start/
 
+package.path = package.path .. ";" .. os.getenv("HOME") .. "/.config/hypr/?.lua"
 
 ----------------
 --- MONITORS ---
 ----------------
--- ~/.config/hypr/conf.d/monitors.lua を読み込む
 require("hyprlua.monitors")
 
 
