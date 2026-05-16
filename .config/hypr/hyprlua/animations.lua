@@ -26,11 +26,11 @@ hl.animation({ leaf = "borderangle", enabled = true, speed = 1.0, bezier = "line
 hl.animation({ leaf = "fade",          enabled = true, speed = 3.0, bezier = "smoothOut" })
 hl.animation({ leaf = "workspaces",    enabled = true, speed = 5.0, bezier = "overshot" })
 
--- git/v0.42.0+ 用のワークスペース個別設定
+-- Workspace-specific settings for git/v0.42.0+
 hl.animation({ leaf = "workspacesIn",  enabled = true, speed = 5.0, bezier = "winIn",     style = "slide" })
 hl.animation({ leaf = "workspacesOut", enabled = true, speed = 5.0, bezier = "winOut",    style = "slide" })
 
--- レイヤー（バーやメニューなど）
+-- layer
 hl.animation({ leaf = "layers",        enabled = true, speed = 4.0, bezier = "winIn",     style = "fade" })
 hl.animation({ leaf = "layersIn",      enabled = true, speed = 3.0, bezier = "winIn",     style = "popin" })
 hl.animation({ leaf = "layersOut",     enabled = true, speed = 5.0, bezier = "winOut",    style = "fade" })

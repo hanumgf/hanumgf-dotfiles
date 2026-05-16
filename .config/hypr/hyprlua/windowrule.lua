@@ -15,12 +15,19 @@ hl.window_rule({
     suppress_event = "maximize",
 })
 
+hl.window_rule({
+    match = { class = "^(fcitx)$" },
+    no_focus = false,
+    no_anim = true,
+    no_shadow = true,
+})
+
 -- Fix drag-and-drop bugs on XWayland
 hl.window_rule({
     name = "fix-xwayland-drags",
     match = {
-        class      = "^$",
-        title      = "^$",
+        class      = "^()$",
+        title      = "^()$",
         xwayland   = true,
         float      = true,
     },
@@ -29,8 +36,8 @@ hl.window_rule({
 
 -- Make XWayland video bridge invisible for clean screen sharing
 hl.window_rule({
-    name = "xwayland-video-bridge-fixes",
-    match = { class = "xwaylandvideobridge" },
+    name = "^(xwayland-video-bridge-fixes)$",
+    match = { class = "^(xwaylandvideobridge)$" },
 
     opacity          = 0.0,
     no_initial_focus = true,
@@ -50,7 +57,7 @@ hl.window_rule({
 hl.window_rule({
     name = "JetBrains Fix",
     match = {
-        class = "^jetbrains-.*$",
+        class = "^(jetbrains-).*$",
         float = true,
         title = "^$|^\\s$|^win\\d+$",
     },
@@ -76,7 +83,7 @@ hl.window_rule({
 hl.window_rule({
     name = "System Tools",
     match = {
-        class = "pavucontrol|org.pulseaudio.pavucontrol|nm-connection-editor|blueberry.py|nwg-look|qt6ct|kvantummanager|org.freedesktop.impl.portal.desktop.kde"
+        class = "^(pavucontrol|org.pulseaudio.pavucontrol|nm-connection-editor|blueberry.py|nwg-look|qt6ct|kvantummanager|org.freedesktop.impl.portal.desktop.kde)$"
     },
     float  = true,
     center = true,
@@ -95,7 +102,7 @@ hl.window_rule({
         title = ".*\\.exe|.*minecraft.*",
         class = "^(steam_app).*|^(cs2)$"
     },
-    immediate = true,
+    --immediate = true,
 })
 
 -- Do not apply shadows to tiled windows
@@ -107,7 +114,7 @@ hl.window_rule({
 -- Optimize OBS performance when unfocused
 hl.window_rule({
     name             = "OBS Performance",
-    match            = { class = "obs" },
+    match            = { class = "^(obs)$" },
     render_unfocused = false,
 })
 
@@ -118,13 +125,13 @@ hl.window_rule({
 
 -- Thunar: Set opacity for main window
 hl.window_rule({
-    match   = { class = "thunar|Thunar" },
+    match   = { class = "^(thunar|Thunar)$" },
     opacity = "0.8 0.8", -- active inactive
 })
 
 -- Vivaldi: Always keep fully opaque
 hl.window_rule({
-    match  = { class = "vivaldi-stable" },
+    match  = { class = "^(vivaldi-stable)$" },
     opaque = true,
 })
 
@@ -149,7 +156,7 @@ hl.window_rule({
 hl.window_rule({
     name = "Steam floating windows",
     match = {
-        class = "steam",
+        class = "^(steam)$",
         title = "Friends List|Steam - News|.* - Chat|Settings|.* - Shop"
     },
     float  = true,
@@ -159,7 +166,7 @@ hl.window_rule({
 -- Steam Games: Force full-screen launch automatically
 hl.window_rule({
     name = "Steam Games",
-    match = { class = "steam_app_.*" },
+    match = { class = "^(steam_app_).*$" },
     fullscreen = true,
 })
 
