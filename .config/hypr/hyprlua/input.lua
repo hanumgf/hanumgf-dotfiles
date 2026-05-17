@@ -11,8 +11,8 @@ hl.config({
         -- Keyboard settings
         kb_layout = "us",
         numlock_by_default = true,
-        repeat_delay = 350,
-        repeat_rate = 30,
+        repeat_delay = 300,
+        repeat_rate = 35,
 
         -- Mouse sensitivity and acceleration profile
         sensitivity = 0,

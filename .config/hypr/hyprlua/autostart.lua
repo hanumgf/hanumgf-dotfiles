@@ -24,6 +24,7 @@ hl.on("hyprland.start", function()
         "hypridle",
         "gsr-ui",
         "~/.config/eww/launch_bar.sh",
+        "easyeffects --hide-window --service-mode",
         "sleep 0.5s; dunst",
 
         -- 5. Background Tasks & Post-processing
