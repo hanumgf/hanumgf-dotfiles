@@ -36,3 +36,4 @@ hl.on("hyprland.start", function()
         hl.exec_cmd(commands[i] .. " &")
     end
 end)
+
