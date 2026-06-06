@@ -24,7 +24,7 @@ hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + R", hl.dsp.exec_cmd(menu))
 hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
 hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit")) -- dwindle
-hl.bind(mainMod .. " + CTRL + V", hl.dsp.exec_cmd("~/.config/hypr/scripts/clipmenu.sh"))
+hl.bind(mainMod .. " + CTRL + V", hl.dsp.exec_cmd("y1-clip-gui"))
 
 -- Move focus with mainMod + arrow keys
 hl.bind(mainMod .. " + left",  hl.dsp.focus({ direction = "left" }))
