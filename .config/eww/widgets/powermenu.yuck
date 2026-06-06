@@ -42,7 +42,7 @@
                   :valign "center"
                   (eventbox :class "powerbutton shutdown"
                             :cursor "pointer"
-                            :onclick "systemctl poweroff"
+                            :onclick "y1-clipboard wipe && systemctl poweroff"
                             ;; :tooltip "Shutdown"
                             (box :class "pwbutton" (label :text " "))
                   )
@@ -67,7 +67,7 @@
                   :valign "center"
                   (eventbox :class "powerbutton reboot"
                             :cursor "pointer"
-                            :onclick "systemctl reboot"
+                            :onclick "y1-clipboard wipe && systemctl reboot"
                             ;; :tooltip "Reboot"
                             (box :class "pwbutton" (label :text " "))
                   )
