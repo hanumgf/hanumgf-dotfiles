@@ -13,8 +13,9 @@ hl.on("hyprland.start", function()
 
         -- 2. Input & Clipboard (Utility)
         "fcitx5 -d --replace",
-        "wl-paste --type text --watch cliphist store",
-        "wl-paste --type image --watch cliphist store",
+        --"wl-paste --type text --watch cliphist store",
+        --"wl-paste --type image --watch cliphist store",
+        "y1-clipboard daemon",
 
         -- 3. Visuals & Themes (High priority for user feedback)
         'hyprctl setcursor "Hakurei Reimu-hyprcursor" 24',
