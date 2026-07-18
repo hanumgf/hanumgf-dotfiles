@@ -15,13 +15,13 @@ fi
 
 FULL_PATH="$WALLPAPER_DIR/$SELECTED_WALLPAPER_NAME"
 
-awww img "$FULL_PATH" --transition-type wipe --transition-step 90 --transition-duration 1
+awww img "$FULL_PATH" --transition-type center --transition-step 199 --transition-duration 2.9
 
 wpg -s "$FULL_PATH"
 
 echo "$FULL_PATH" >~/.config/hypr/current_wallpaper_awww
 
-sleep 0.2s
+sleep 1s
 hyprctl reload
 bash ~/.config/eww/scripts/set_hyprlock.sh
 eww reload
