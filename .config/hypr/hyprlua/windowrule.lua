@@ -166,10 +166,21 @@ hl.window_rule({
 -- Steam Games: Force full-screen launch automatically
 hl.window_rule({
     name = "Steam Games",
-    match = { class = "^(steam_app_).*$" },
+    match = { class = "^(steam_app_)(.*)$" },
     fullscreen = true,
 })
 
+-- War Thunder: Processing optimization
+hl.window_rule({
+    match = { class = "^(War Thunder)(.*)$" },
+    render_unfocused = false,
+    fullscreen = true,
+    content = "game",
+    immediate = true,
+    no_anim = true,
+    no_blur = true,
+    no_dim = true
+})
 
 ------------------------
 --- LAYER RULES      ---
