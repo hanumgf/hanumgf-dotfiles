@@ -1,0 +1,1 @@
+alias fuckingdiscord='(~/.config/discord/Discord --ozone-platform=wayland --enable-wayland-ime --enable-features=UseOzonePlatform,WebRTCPipeWireCapturer,WaylandWindowDecorations --enable-gpu-rasterization --enable-zero-copy --ignore-gpu-blocklist --disable-gpu-sandbox --disable-software-rasterizer &>/dev/null &)'

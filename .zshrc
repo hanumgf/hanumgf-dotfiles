@@ -80,6 +80,10 @@ alias grep='grep --color=auto'
 alias ff='fastfetch'
 alias nf='neofetch'
 
-alias gen-newmirrorlist='sudo reflector --country Japan --exclude 'mirror.rain.ne.jp' --protocol https --age 24 --latest 20 --sort rate --save /etc/pacman.d/mirrorlist'
-alias fuckingdiscord='(discord --ozone-platform=wayland --enable-wayland-ime --enable-features=WebRTCPipeWireCapturer,WaylandWindowDecorations,VaapiVideoDecoder,VaapiVideoEncoder,CanvasOopRasterization,SkiaGraphite,DefaultAngleVulkan --disable-features=UseChromeOSDirectVideoDecoder --enable-gpu-rasterization --enable-zero-copy --ignore-gpu-blocklist --use-gl=desktop --force-color-profile=srgb --disable-renderer-backgrounding --disable-background-timer-throttling --max-active-video-decoders=16 --js-flags="--max-old-space-size=512" &>/dev/null &)'
+# alias ディレクトリが存在する場合のみ一括読み込み
+if [ -d "$HOME/.config/alias" ]; then
+    for f in "$HOME"/.config/alias/*; do
+        [ -f "$f" ] && source "$f"
+    done
+fi
 
