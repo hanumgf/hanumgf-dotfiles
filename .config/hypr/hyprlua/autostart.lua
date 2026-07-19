@@ -27,7 +27,7 @@ hl.on("hyprland.start", function()
         "gsr-ui",
         "~/.config/eww/launch_bar.sh",
         "easyeffects --hide-window --service-mode",
-        "sleep 0.5s; dunst",
+        "sleep 0.5s; swaync",
 
         -- 5. Background Tasks & Post-processing
         "sleep 1s; ~/.config/hypr/scripts/dns-warmup.sh",
