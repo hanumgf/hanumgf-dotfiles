@@ -148,6 +148,12 @@ hl.window_rule({
     size              = "25% 25%",
 })
 
+hl.window_rule({
+    name = "Satty-screenshot Fix",
+    match = { class = "^(com.gabm.satty)$" },
+    float = true,
+})
+
 ------------------------
 --- GAMER / TOOLS    ---
 ------------------------

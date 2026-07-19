@@ -12,6 +12,9 @@ local menu = "rofi -show drun"
 local fileManager = "thunar"
 local browser = "vivaldi"
 
+local fscreenshot = [[zsh -c "GSK_RENDERER=nglimages grim - | satty --filename -"]]
+local sscreenshot = [[zsh -c 'GSK_RENDERER=nglimages grim -g "$(slurp)" - | satty --filename -']]
+
 hl.bind(mainMod .. " + T", hl.dsp.exec_cmd(terminal))
 hl.bind(mainMod .. " + W", hl.dsp.exec_cmd("~/.config/hypr/scripts/wallpaper_selector_pv.sh"))
 hl.bind(mainMod .. " + B", hl.dsp.exec_cmd(browser))
@@ -25,6 +28,7 @@ hl.bind(mainMod .. " + R", hl.dsp.exec_cmd(menu))
 hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
 hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit")) -- dwindle
 hl.bind(mainMod .. " + CTRL + V", hl.dsp.exec_cmd("y1-clip-gui"))
+hl.bind(mainMod .. " + L", hl.dsp.exec_cmd("hyprlock"))
 
 -- Move focus with mainMod + arrow keys
 hl.bind(mainMod .. " + left",  hl.dsp.focus({ direction = "left" }))
@@ -39,9 +43,8 @@ hl.bind(mainMod .. " + SHIFT + up",    hl.dsp.window.move({ direction = "up" }))
 hl.bind(mainMod .. " + SHIFT + down",  hl.dsp.window.move({ direction = "down" }))
 
 -- Screen shot keybind ops
-hl.bind(mainMod .. " + ALT + bracketright",   hl.dsp.exec_cmd("~/.config/hypr/scripts/screenshot.sh full"))
-hl.bind(mainMod .. " + SHIFT + bracketright", hl.dsp.exec_cmd("~/.config/hypr/scripts/screenshot.sh select"))
-hl.bind(mainMod .. " + CTRL + bracketright",  hl.dsp.exec_cmd("~/.config/hypr/scripts/screenshot.sh copy"))
+hl.bind(mainMod .. " + SHIFT + bracketright", hl.dsp.exec_cmd(fscreenshot))
+hl.bind(mainMod .. " + CTRL + bracketright",  hl.dsp.exec_cmd(sscreenshot))
 
 -- Switch workspaces with mainMod + [1-8]
 -- Move active window to a workspace with mainMod + SHIFT + [1-8]
