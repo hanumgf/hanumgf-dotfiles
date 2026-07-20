@@ -1,4 +1,4 @@
-# hanumgf-dotfiles
+# yosana-dotfiles
 
 > **My personal configuration files for Arch Linux.**
 
